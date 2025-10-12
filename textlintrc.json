@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "@textlint-ja/preset-ai-writing": true,
+    "preset-ja-technical-writing": true,
+    "@0x6b/normalize-whitespaces": true,
+    "ng-word": true,
+    "@0x6b/no-emoji": true
+  }
+}
