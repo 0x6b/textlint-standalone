@@ -1,16 +1,16 @@
 # textlint-standalone
 
-Opinionated, single-binary textlint for my own use, built with Bun.
+Opinionated, single-binary textlint for my own use, built with Deno.
 
 ## Prerequisite
 
-- [Bun](https://bun.sh/) 1.3.0 or later
+- [Deno](https://deno.com/) 2.5.4 or later
 
 ## Installation
 
 ```console
-$ bun install
-$ bun run build
+$ deno install
+$ deno task build
 ```
 
 This creates a standalone executable, `dist/textlint`, with embedded configuration and dependencies.
@@ -39,7 +39,7 @@ Examples:
 Run directly from source during development:
 
 ```console
-$ bun run src/main.ts [options] [files...]
+$ deno task dev [options] [files...]
 ```
 
 ### Formatting and Linting
@@ -47,17 +47,17 @@ $ bun run src/main.ts [options] [files...]
 Format code with [Biome](https://biomejs.dev/):
 
 ```console
-$ bun run format # Format and write changes
-$ bun run lint   # Lint and fix issues
-$ bun run check  # Run both format and lint
+$ deno task format # Format and write changes
+$ deno task lint   # Lint and fix issues
+$ deno task check  # Run both format and lint
 ```
 
 ### Clean Up
 
-Remove all generated files and dependencies i.e. `node_modules`, `dist`, and `bun.lock`:
+Remove all generated files and dependencies i.e. `node_modules` and `dist`:
 
 ```console
-$ bun run clean
+$ deno task clean
 ```
 
 ## License
