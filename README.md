@@ -60,6 +60,16 @@ Remove all generated files and dependencies i.e. `node_modules` and `dist`:
 $ deno task clean
 ```
 
+## Pre-configured Presets and Rules
+
+This standalone version comes with the following pre-configured textlint presets and rules:
+
+- [@textlint-ja/textlint-rule-preset-ai-writing](https://www.npmjs.com/package/@textlint-ja/textlint-rule-preset-ai-writing): Preset optimized for AI-written text
+- [textlint-rule-preset-ja-technical-writing](https://www.npmjs.com/package/textlint-rule-preset-ja-technical-writing): Preset for Japanese technical writing
+- [@0x6b/textlint-rule-no-emoji](https://www.npmjs.com/package/@0x6b/textlint-rule-no-emoji): Disallows emoji usage
+- [@0x6b/textlint-rule-no-emphasis](https://www.npmjs.com/package/@0x6b/textlint-rule-no-emphasis): Disallows emphasis markup
+- [@0x6b/textlint-rule-normalize-whitespaces](https://www.npmjs.com/package/@0x6b/textlint-rule-normalize-whitespaces): Replaces exotic whitespaces with normal spaces
+
 ## License
 
 MIT. See [LICENSE](./LICENSE) for detail.

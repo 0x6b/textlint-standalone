@@ -4,6 +4,7 @@ import { expandGlob } from "@std/fs";
 import { TextlintKernelDescriptor } from "@textlint/kernel";
 import { moduleInterop } from "@textlint/module-interop";
 import { createLinter, loadLinterFormatter } from "textlint";
+import textlintConfig from "../textlintrc.json" with { type: "json" };
 
 // Dynamic imports for CommonJS compatibility
 const loadModules = async () => {
@@ -11,18 +12,12 @@ const loadModules = async () => {
     noEmojiModule,
     noEmphasisModule,
     normalizeWhitespacesModule,
-    aiWritingModule,
-    ngWordModule,
-    jaTechnicalWritingModule,
     markdownPluginModule,
     textPluginModule,
   ] = await Promise.all([
     import("@0x6b/textlint-rule-no-emoji"),
     import("@0x6b/textlint-rule-no-emphasis"),
     import("@0x6b/textlint-rule-normalize-whitespaces"),
-    import("@textlint-ja/textlint-rule-preset-ai-writing"),
-    import("textlint-rule-ng-word"),
-    import("textlint-rule-preset-ja-technical-writing"),
     import("@textlint/textlint-plugin-markdown"),
     import("@textlint/textlint-plugin-text"),
   ]);
@@ -31,9 +26,6 @@ const loadModules = async () => {
     noEmojiRule: noEmojiModule.default || noEmojiModule,
     noEmphasisRule: noEmphasisModule.default || noEmphasisModule,
     normalizeWhitespacesRule: normalizeWhitespacesModule.default || normalizeWhitespacesModule,
-    aiWritingPreset: aiWritingModule.default || aiWritingModule,
-    ngWordRule: ngWordModule.default || ngWordModule,
-    jaTechnicalWritingPreset: jaTechnicalWritingModule.default || jaTechnicalWritingModule,
     markdownPlugin: markdownPluginModule.default || markdownPluginModule,
     textPlugin: textPluginModule.default || textPluginModule,
   };
@@ -92,33 +84,33 @@ Examples:
   }
 
   // Load modules dynamically
-  const { noEmojiRule, noEmphasisRule, normalizeWhitespacesRule, ngWordRule, markdownPlugin, textPlugin } =
+  const { noEmojiRule, noEmphasisRule, normalizeWhitespacesRule, markdownPlugin, textPlugin } =
     await loadModules();
+
+  const ruleModules = {
+    "@0x6b/no-emoji": noEmojiRule,
+    "@0x6b/no-emphasis": noEmphasisRule,
+    "@0x6b/normalize-whitespaces": normalizeWhitespacesRule,
+  };
+
+  const rules = [];
+  const rulesConfig = {};
+
+  for (const [ruleId, options] of Object.entries(textlintConfig.rules)) {
+    if (ruleId.startsWith("@textlint-ja/") || ruleId.startsWith("preset-")) {
+      rulesConfig[ruleId] = options;
+    } else {
+      rules.push({
+        ruleId,
+        rule: moduleInterop(ruleModules[ruleId]),
+        options,
+      });
+    }
+  }
 
   // Create descriptor programmatically
   const descriptor = new TextlintKernelDescriptor({
-    rules: [
-      {
-        ruleId: "@0x6b/no-emoji",
-        rule: moduleInterop(noEmojiRule),
-        options: true,
-      },
-      {
-        ruleId: "@0x6b/no-emphasis",
-        rule: moduleInterop(noEmphasisRule),
-        options: true,
-      },
-      {
-        ruleId: "@0x6b/normalize-whitespaces",
-        rule: moduleInterop(normalizeWhitespacesRule),
-        options: true,
-      },
-      {
-        ruleId: "ng-word",
-        rule: moduleInterop(ngWordRule),
-        options: true,
-      },
-    ],
+    rules,
     filterRules: [],
     plugins: [
       {
@@ -130,10 +122,7 @@ Examples:
         plugin: moduleInterop(textPlugin),
       },
     ],
-    rulesConfig: {
-      "@textlint-ja/preset-ai-writing": true,
-      "preset-ja-technical-writing": true,
-    },
+    rulesConfig,
   });
 
   const linter = createLinter({ descriptor });
