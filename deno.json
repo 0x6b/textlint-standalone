@@ -11,10 +11,12 @@
   "imports": {
     "@std/fs": "jsr:@std/fs@^1.0.8",
     "@0x6b/textlint-rule-no-emoji": "npm:@0x6b/textlint-rule-no-emoji@^0.3.0",
+    "@0x6b/textlint-rule-no-emphasis": "npm:@0x6b/textlint-rule-no-emphasis@^0.1.0",
     "@0x6b/textlint-rule-normalize-whitespaces": "npm:@0x6b/textlint-rule-normalize-whitespaces@^1.2.1",
     "@textlint-ja/textlint-rule-preset-ai-writing": "npm:@textlint-ja/textlint-rule-preset-ai-writing@^1.6.1",
     "@textlint/kernel": "npm:@textlint/kernel@^15.2.3",
     "@textlint/module-interop": "npm:@textlint/module-interop@^15.2.3",
+    "@textlint/types": "npm:@textlint/types@^15.2.3",
     "@textlint/textlint-plugin-markdown": "npm:@textlint/textlint-plugin-markdown@^15.2.3",
     "@textlint/textlint-plugin-text": "npm:@textlint/textlint-plugin-text@^15.2.3",
     "textlint": "npm:textlint@^15.2.3",

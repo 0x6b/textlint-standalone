@@ -9,6 +9,7 @@ import { createLinter, loadLinterFormatter } from "textlint";
 const loadModules = async () => {
   const [
     noEmojiModule,
+    noEmphasisModule,
     normalizeWhitespacesModule,
     aiWritingModule,
     ngWordModule,
@@ -17,6 +18,7 @@ const loadModules = async () => {
     textPluginModule,
   ] = await Promise.all([
     import("@0x6b/textlint-rule-no-emoji"),
+    import("@0x6b/textlint-rule-no-emphasis"),
     import("@0x6b/textlint-rule-normalize-whitespaces"),
     import("@textlint-ja/textlint-rule-preset-ai-writing"),
     import("textlint-rule-ng-word"),
@@ -27,6 +29,7 @@ const loadModules = async () => {
 
   return {
     noEmojiRule: noEmojiModule.default || noEmojiModule,
+    noEmphasisRule: noEmphasisModule.default || noEmphasisModule,
     normalizeWhitespacesRule: normalizeWhitespacesModule.default || normalizeWhitespacesModule,
     aiWritingPreset: aiWritingModule.default || aiWritingModule,
     ngWordRule: ngWordModule.default || ngWordModule,
@@ -89,7 +92,7 @@ Examples:
   }
 
   // Load modules dynamically
-  const { noEmojiRule, normalizeWhitespacesRule, ngWordRule, markdownPlugin, textPlugin } =
+  const { noEmojiRule, noEmphasisRule, normalizeWhitespacesRule, ngWordRule, markdownPlugin, textPlugin } =
     await loadModules();
 
   // Create descriptor programmatically
@@ -98,6 +101,11 @@ Examples:
       {
         ruleId: "@0x6b/no-emoji",
         rule: moduleInterop(noEmojiRule),
+        options: true,
+      },
+      {
+        ruleId: "@0x6b/no-emphasis",
+        rule: moduleInterop(noEmphasisRule),
         options: true,
       },
       {

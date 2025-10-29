@@ -4,6 +4,7 @@
     "preset-ja-technical-writing": true,
     "@0x6b/normalize-whitespaces": true,
     "ng-word": true,
-    "@0x6b/no-emoji": true
+    "@0x6b/no-emoji": true,
+    "@0x6b/no-emphasis": true
   }
 }
