@@ -7,6 +7,7 @@
     "jsr:@std/path@^1.1.1": "1.1.2",
     "npm:@0x6b/textlint-rule-no-emoji@0.3": "0.3.0",
     "npm:@0x6b/textlint-rule-no-emphasis@0.1": "0.1.0",
+    "npm:@0x6b/textlint-rule-no-numbered-headings-and-bullets@0.1": "0.1.0",
     "npm:@0x6b/textlint-rule-normalize-whitespaces@^1.2.1": "1.2.1",
     "npm:@biomejs/biome@^2.2.5": "2.3.1",
     "npm:@textlint-ja/textlint-rule-preset-ai-writing@^1.6.1": "1.6.1",
@@ -48,6 +49,9 @@
     },
     "@0x6b/textlint-rule-no-emphasis@0.1.0": {
       "integrity": "sha512-QymqMAZckgJwx2CPMtC4UiAWQ5ZJVsaHAPe96PU0SEdFBv3DzSJ7RNsj29hpCCICpnCfNWXbo4iJ+e5opHPltA=="
+    },
+    "@0x6b/textlint-rule-no-numbered-headings-and-bullets@0.1.0": {
+      "integrity": "sha512-XanlLPBfxnVSaJbuu5TtKl6/f6ijnvizELO7g2BiYTBc0CmBtvkZAjX77dGFa74Ii8yy1CWmRDS9SbWar/TUig=="
     },
     "@0x6b/textlint-rule-normalize-whitespaces@1.2.1": {
       "integrity": "sha512-AdCedGVNhTarT8YZIOZgZQhAV0mzUyGS8kdbwn/IXCwxDhNpqlHi6OrWZiAobi5JmhcTjE5+S1WtnTLIyWG/YA==",
@@ -3003,6 +3007,7 @@
       "jsr:@std/fs@^1.0.8",
       "npm:@0x6b/textlint-rule-no-emoji@0.3",
       "npm:@0x6b/textlint-rule-no-emphasis@0.1",
+      "npm:@0x6b/textlint-rule-no-numbered-headings-and-bullets@0.1",
       "npm:@0x6b/textlint-rule-normalize-whitespaces@^1.2.1",
       "npm:@biomejs/biome@^2.2.5",
       "npm:@textlint-ja/textlint-rule-preset-ai-writing@^1.6.1",
