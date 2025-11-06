@@ -5,6 +5,7 @@
     "@0x6b/normalize-whitespaces": true,
     "@0x6b/no-emoji": true,
     "@0x6b/no-emphasis": true,
+    "@0x6b/no-hr-before-heading": true,
     "@0x6b/no-numbered-headings-and-bullets": true
   }
 }

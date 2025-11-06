@@ -11,6 +11,7 @@ const loadModules = async () => {
   const [
     noEmojiModule,
     noEmphasisModule,
+    noHrBeforeHeadingModule,
     noNumberedHeadingsAndBulletsModule,
     normalizeWhitespacesModule,
     markdownPluginModule,
@@ -18,6 +19,7 @@ const loadModules = async () => {
   ] = await Promise.all([
     import("@0x6b/textlint-rule-no-emoji"),
     import("@0x6b/textlint-rule-no-emphasis"),
+    import("@0x6b/textlint-rule-no-hr-before-heading"),
     import("@0x6b/textlint-rule-no-numbered-headings-and-bullets"),
     import("@0x6b/textlint-rule-normalize-whitespaces"),
     import("@textlint/textlint-plugin-markdown"),
@@ -27,6 +29,7 @@ const loadModules = async () => {
   return {
     noEmojiRule: noEmojiModule.default || noEmojiModule,
     noEmphasisRule: noEmphasisModule.default || noEmphasisModule,
+    noHrBeforeHeadingRule: noHrBeforeHeadingModule.default || noHrBeforeHeadingModule,
     noNumberedHeadingsAndBulletsRule: noNumberedHeadingsAndBulletsModule.default || noNumberedHeadingsAndBulletsModule,
     normalizeWhitespacesRule: normalizeWhitespacesModule.default || normalizeWhitespacesModule,
     markdownPlugin: markdownPluginModule.default || markdownPluginModule,
@@ -87,12 +90,13 @@ Examples:
   }
 
   // Load modules dynamically
-  const { noEmojiRule, noEmphasisRule, noNumberedHeadingsAndBulletsRule, normalizeWhitespacesRule, markdownPlugin, textPlugin } =
+  const { noEmojiRule, noEmphasisRule, noHrBeforeHeadingRule, noNumberedHeadingsAndBulletsRule, normalizeWhitespacesRule, markdownPlugin, textPlugin } =
     await loadModules();
 
   const ruleModules = {
     "@0x6b/no-emoji": noEmojiRule,
     "@0x6b/no-emphasis": noEmphasisRule,
+    "@0x6b/no-hr-before-heading": noHrBeforeHeadingRule,
     "@0x6b/no-numbered-headings-and-bullets": noNumberedHeadingsAndBulletsRule,
     "@0x6b/normalize-whitespaces": normalizeWhitespacesRule,
   };
