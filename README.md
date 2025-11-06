@@ -68,6 +68,7 @@ This standalone version comes with the following pre-configured textlint presets
 - [textlint-rule-preset-ja-technical-writing](https://www.npmjs.com/package/textlint-rule-preset-ja-technical-writing): Preset for Japanese technical writing
 - [@0x6b/textlint-rule-no-emoji](https://www.npmjs.com/package/@0x6b/textlint-rule-no-emoji): Disallows emoji usage
 - [@0x6b/textlint-rule-no-emphasis](https://www.npmjs.com/package/@0x6b/textlint-rule-no-emphasis): Disallows emphasis markup
+- [@0x6b/textlint-rule-no-numbered-headings-and-bullets](https://www.npmjs.com/package/@0x6b/textlint-rule-no-numbered-headings-and-bullets): Detects and reports numbered headings and bullet list items
 - [@0x6b/textlint-rule-normalize-whitespaces](https://www.npmjs.com/package/@0x6b/textlint-rule-normalize-whitespaces): Replaces exotic whitespaces with normal spaces
 
 ## License
