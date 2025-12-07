@@ -13,6 +13,7 @@ const loadModules = async () => {
     noEmphasisModule,
     noHrBeforeHeadingModule,
     noNumberedHeadingsAndBulletsModule,
+    noSmartQuotesModule,
     normalizeWhitespacesModule,
     markdownPluginModule,
     textPluginModule,
@@ -21,6 +22,7 @@ const loadModules = async () => {
     import("@0x6b/textlint-rule-no-emphasis"),
     import("@0x6b/textlint-rule-no-hr-before-heading"),
     import("@0x6b/textlint-rule-no-numbered-headings-and-bullets"),
+    import("@0x6b/textlint-rule-no-smart-quotes"),
     import("@0x6b/textlint-rule-normalize-whitespaces"),
     import("@textlint/textlint-plugin-markdown"),
     import("@textlint/textlint-plugin-text"),
@@ -31,6 +33,7 @@ const loadModules = async () => {
     noEmphasisRule: noEmphasisModule.default || noEmphasisModule,
     noHrBeforeHeadingRule: noHrBeforeHeadingModule.default || noHrBeforeHeadingModule,
     noNumberedHeadingsAndBulletsRule: noNumberedHeadingsAndBulletsModule.default || noNumberedHeadingsAndBulletsModule,
+    noSmartQuotesRule: noSmartQuotesModule.default || noSmartQuotesModule,
     normalizeWhitespacesRule: normalizeWhitespacesModule.default || normalizeWhitespacesModule,
     markdownPlugin: markdownPluginModule.default || markdownPluginModule,
     textPlugin: textPluginModule.default || textPluginModule,
@@ -90,7 +93,7 @@ Examples:
   }
 
   // Load modules dynamically
-  const { noEmojiRule, noEmphasisRule, noHrBeforeHeadingRule, noNumberedHeadingsAndBulletsRule, normalizeWhitespacesRule, markdownPlugin, textPlugin } =
+  const { noEmojiRule, noEmphasisRule, noHrBeforeHeadingRule, noNumberedHeadingsAndBulletsRule, noSmartQuotesRule, normalizeWhitespacesRule, markdownPlugin, textPlugin } =
     await loadModules();
 
   const ruleModules = {
@@ -98,6 +101,7 @@ Examples:
     "@0x6b/no-emphasis": noEmphasisRule,
     "@0x6b/no-hr-before-heading": noHrBeforeHeadingRule,
     "@0x6b/no-numbered-headings-and-bullets": noNumberedHeadingsAndBulletsRule,
+    "@0x6b/no-smart-quotes": noSmartQuotesRule,
     "@0x6b/normalize-whitespaces": normalizeWhitespacesRule,
   };
 
