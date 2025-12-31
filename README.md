@@ -64,12 +64,14 @@ $ deno task clean
 
 This standalone version comes with the following pre-configured textlint presets and rules:
 
-- [@textlint-ja/textlint-rule-preset-ai-writing](https://www.npmjs.com/package/@textlint-ja/textlint-rule-preset-ai-writing): Preset optimized for AI-written text
-- [textlint-rule-preset-ja-technical-writing](https://www.npmjs.com/package/textlint-rule-preset-ja-technical-writing): Preset for Japanese technical writing
 - [@0x6b/textlint-rule-no-emoji](https://www.npmjs.com/package/@0x6b/textlint-rule-no-emoji): Disallows emoji usage
 - [@0x6b/textlint-rule-no-emphasis](https://www.npmjs.com/package/@0x6b/textlint-rule-no-emphasis): Disallows emphasis markup
+- [@0x6b/textlint-rule-no-hr-before-heading](https://www.npmjs.com/package/@0x6b/textlint-rule-no-hr-before-heading): Disallows horizontal rules immediately before headings
 - [@0x6b/textlint-rule-no-numbered-headings-and-bullets](https://www.npmjs.com/package/@0x6b/textlint-rule-no-numbered-headings-and-bullets): Detects and reports numbered headings and bullet list items
+- [@0x6b/textlint-rule-no-smart-quotes](https://www.npmjs.com/package/@0x6b/textlint-rule-no-smart-quotes): Disallows smart quotes (curly quotes)
 - [@0x6b/textlint-rule-normalize-whitespaces](https://www.npmjs.com/package/@0x6b/textlint-rule-normalize-whitespaces): Replaces exotic whitespaces with normal spaces
+- [@textlint-ja/textlint-rule-preset-ai-writing](https://www.npmjs.com/package/@textlint-ja/textlint-rule-preset-ai-writing): Preset optimized for AI-written text
+- [textlint-rule-preset-ja-technical-writing](https://www.npmjs.com/package/textlint-rule-preset-ja-technical-writing): Preset for Japanese technical writing
 
 ## License
 
